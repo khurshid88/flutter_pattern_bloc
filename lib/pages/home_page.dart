@@ -44,7 +44,9 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<ListPostCubit>(context).callCreatePage(context);
+          },
           child: const Icon(Icons.add),
         ));
   }

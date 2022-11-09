@@ -11,7 +11,9 @@ Widget itemOfPost(BuildContext context, Post post) {
       dismissible: DismissiblePane(onDismissed: () {}),
       children: [
         SlidableAction(
-          onPressed: (BuildContext context) {},
+          onPressed: (BuildContext context) {
+            BlocProvider.of<ListPostCubit>(context).callUpdatePage(context, post);
+          },
           backgroundColor: Colors.green,
           foregroundColor: Colors.white,
           icon: Icons.edit,
@@ -40,14 +42,14 @@ Widget itemOfPost(BuildContext context, Post post) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            post.title.toUpperCase(),
+            post.title!.toUpperCase(),
             style: const TextStyle(color: Colors.black),
           ),
           const SizedBox(
             height: 5,
           ),
           Text(
-            post.body,
+            post.body!,
             style: const TextStyle(color: Colors.black54),
           ),
         ],
